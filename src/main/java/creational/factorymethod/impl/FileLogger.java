@@ -1,6 +1,6 @@
-package creational.factoryMethod.impl;
+package creational.factorymethod.impl;
 
-import creational.factoryMethod.Logger;
+import creational.factorymethod.Logger;
 
 /**
  * @author linexsong

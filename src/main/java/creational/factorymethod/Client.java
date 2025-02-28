@@ -1,4 +1,4 @@
-package creational.factoryMethod;
+package creational.factorymethod;
 
 import tools.XmlUtil;
 

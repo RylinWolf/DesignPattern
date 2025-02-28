@@ -1,7 +1,7 @@
-package creational.factoryMethod.impl;
+package creational.factorymethod.impl;
 
-import creational.factoryMethod.AbstractHideMethodLoggerFactory;
-import creational.factoryMethod.Logger;
+import creational.factorymethod.AbstractHideMethodLoggerFactory;
+import creational.factorymethod.Logger;
 
 /**
  * @author linexsong

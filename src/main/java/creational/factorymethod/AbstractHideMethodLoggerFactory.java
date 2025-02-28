@@ -1,4 +1,4 @@
-package creational.factoryMethod;
+package creational.factorymethod;
 
 /**
  * 隐藏工厂方法，在工厂类中直接调用产品对象的业务方法

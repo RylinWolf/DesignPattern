@@ -1,4 +1,4 @@
-package creational.factoryMethod;
+package creational.factorymethod;
 
 /**
  * @author linexsong
