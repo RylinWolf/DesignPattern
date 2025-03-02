@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author linexsong
@@ -27,11 +28,23 @@ public class XmlUtil {
             Document doc = builder.parse(new File(filePath));
 
             NodeList nl = doc.getElementsByTagName(tag);
-            return nl.item(index).getChildNodes().item(index).getNodeValue().trim();
+            return nl.item(index).getChildNodes().item(0).getNodeValue().trim();
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
             System.out.println(e.getMessage());
             return null;
+        }
+    }
+
+    public static <T> T getObject(String filePath, String tag, Integer index, Class<T> clazz) {
+        try {
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document parse = builder.parse(new File(filePath));
+            return clazz.cast(Class.forName(parse.getElementsByTagName(tag).item(index).getChildNodes().item(0).getNodeValue().trim()).getConstructor().newInstance());
+        } catch (ParserConfigurationException | IOException | SAXException | ClassNotFoundException |
+                 NoSuchMethodException | InstantiationException | IllegalAccessException |
+                 InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
     }
 }
